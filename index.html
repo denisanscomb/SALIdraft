@@ -1,7 +1,355 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h1>GitHub Pages Test</h1>
-    <p>If you see this, Pages works.</p>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;" />
+  <title>SALI Governance (Simplified)</title>
+  <style>
+    :root{
+      --text:#111;
+      --muted:#555;
+      --rule:#e5e5e5;
+      --link:#0b57d0;
+      --bg:#fff;
+      --code:#f6f8fa;
+    }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+    header, main, footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+    header{
+      border-bottom:1px solid var(--rule);
+    }
+    h1{ font-size: 26px; margin: 6px 0 4px; }
+    .updated{ color:var(--muted); font-size: 14px; margin: 0 0 10px; }
+    nav{
+      font-size: 14px;
+      color: var(--muted);
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    nav a{ color:var(--link); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+
+    h2{ font-size: 20px; margin-top: 28px; }
+    h3{ font-size: 16px; margin-top: 18px; }
+    p{ margin: 10px 0; }
+    ul{ margin: 8px 0 12px 22px; }
+    li{ margin: 6px 0; }
+
+    .callout{
+      border:1px solid var(--rule);
+      background: #fafafa;
+      padding:12px 14px;
+      border-radius:10px;
+      margin: 14px 0;
+    }
+    .muted{ color:var(--muted); }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 820px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card{
+      border:1px solid var(--rule);
+      border-radius:10px;
+      padding:12px 14px;
+      background:#fff;
+    }
+    .card h3{ margin-top: 0; }
+    .tag{
+      display:inline-block;
+      font-size: 12px;
+      padding: 2px 8px;
+      border:1px solid var(--rule);
+      border-radius: 999px;
+      background:#fbfbfb;
+      color:var(--muted);
+      margin-left:6px;
+      vertical-align: middle;
+    }
+    .diagram{
+      border:1px solid var(--rule);
+      border-radius:10px;
+      padding:12px;
+      background:#fff;
+      overflow:auto;
+    }
+    code, pre{
+      background: var(--code);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+    }
+    code{ padding: 1px 6px; }
+    pre{ padding: 10px 12px; overflow:auto; }
+    footer{
+      border-top:1px solid var(--rule);
+      color:var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>SALI Governance (Simplified)</h1>
+  <p class="updated">Last updated: <strong>2025-12-01</strong></p>
+
+  <p>
+    SALI (Standards Advancement for the Legal Industry) is a non-profit, community-driven organization
+    that creates and maintains the <strong>Legal Matter Standard Specification (LMSS)</strong>.
+    Our governance is designed to be <strong>lightweight, transparent, and predictable</strong>.
+  </p>
+
+  <nav aria-label="Page navigation">
+    <a href="#structure">How SALI is organized</a>
+    <a href="#board">Board of Directors</a>
+    <a href="#operating">Operating Committee</a>
+    <a href="#working-groups">Working Groups</a>
+    <a href="#releases">LMSS release process</a>
+    <a href="#approvals">Approval paths</a>
+    <a href="#transparency">Transparency & policies</a>
+    <a href="#participate">How to participate</a>
+  </nav>
+</header>
+
+<main>
+  <section id="structure">
+    <h2>How SALI is organized</h2>
+    <p>SALI’s work is coordinated through three layers:</p>
+    <ul>
+      <li><strong>Board of Directors</strong> (strategy + oversight)</li>
+      <li><strong>Operating Committee</strong> (day-to-day program leadership)</li>
+      <li><strong>Working Groups</strong> (draft and propose changes)</li>
+    </ul>
+    <p class="muted">Most standards work happens in public repositories (e.g., GitHub) wherever practical.</p>
+
+    <div class="diagram" aria-label="Governance diagram">
+      <!-- Inline SVG diagram -->
+      <svg width="980" height="360" viewBox="0 0 980 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+        <title id="diagram-title">SALI Governance Structure</title>
+        <desc id="diagram-desc">Diagram showing the three-layer governance structure of SALI: Board of Directors at the top, Operating Committee in the middle, and Working Groups at the bottom. The release cycle is shown on the right side.</desc>
+        <style>
+          .box { fill:#ffffff; stroke:#d0d7de; stroke-width:1.2; }
+          .hdr { font: 600 14px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill:#111; }
+          .txt { font: 13px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill:#333; }
+          .mut { font: 12px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill:#555; }
+          .arrow { stroke:#6b7280; stroke-width:1.4; fill:none; marker-end:url(#m); }
+          .pill { fill:#f6f8fa; stroke:#d0d7de; stroke-width:1; }
+        </style>
+        <defs>
+          <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/>
+          </marker>
+        </defs>
+
+        <!-- Board -->
+        <rect class="box" x="40" y="24" rx="12" ry="12" width="900" height="86"/>
+        <text class="hdr" x="60" y="54">Board of Directors</text>
+        <text class="txt" x="60" y="76">Strategy • oversight • licensing/IP • Code of Conduct • ratifies annual January LMSS stable release • final escalation</text>
+        <rect class="pill" x="60" y="86" rx="999" ry="999" width="260" height="20"/>
+        <text class="mut" x="72" y="101">President (Chair): Toby Brown</text>
+        <rect class="pill" x="330" y="86" rx="999" ry="999" width="520" height="20"/>
+        <text class="mut" x="342" y="101">Ex officio directors (voting): Chairs of LMA, ALA, ILTA</text>
+
+        <!-- Operating Committee -->
+        <rect class="box" x="40" y="140" rx="12" ry="12" width="900" height="92"/>
+        <text class="hdr" x="60" y="170">Operating Committee</text>
+        <text class="txt" x="60" y="192">Day-to-day leadership • roadmap & releases • WG coordination • maintainer oversight • resolves disputes</text>
+        <rect class="pill" x="60" y="202" rx="999" ry="999" width="520" height="20"/>
+        <text class="mut" x="72" y="217">Members: Jim Hannigan • Toby Brown • Kelly Harbour • Ron Friedmann</text>
+
+        <!-- Working Groups -->
+        <rect class="box" x="40" y="264" rx="12" ry="12" width="560" height="78"/>
+        <text class="hdr" x="60" y="294">Working Groups (WGs)</text>
+        <text class="txt" x="60" y="316">Open contributor teams • time-boxed or ongoing • propose LMSS changes and guidance</text>
+        <text class="mut" x="60" y="336">Use “lazy consensus” for minor items; escalate disagreements to Operating Committee</text>
+
+        <!-- Release cycle -->
+        <rect class="box" x="630" y="264" rx="12" ry="12" width="310" height="78"/>
+        <text class="hdr" x="650" y="294">Release cycle</text>
+        <text class="txt" x="650" y="316">Stable: every January</text>
+        <text class="txt" x="650" y="336">Beta: changes accumulate during the year</text>
+
+        <!-- Arrows -->
+        <line class="arrow" x1="490" y1="110" x2="490" y2="140"/>
+        <line class="arrow" x1="320" y1="232" x2="320" y2="264"/>
+        <line class="arrow" x1="785" y1="232" x2="785" y2="264"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="board">
+    <h2>Board of Directors <span class="tag">Strategy & Oversight</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h3>What the Board does</h3>
+        <ul>
+          <li>Sets overall strategy and annual priorities</li>
+          <li>Protects the SALI brand and intellectual property</li>
+          <li>Approves licensing/IP policies and the Code of Conduct</li>
+          <li><strong>Ratifies the annual LMSS stable release (each January)</strong></li>
+          <li>Final escalation point for high-impact disputes and governance changes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Composition and cadence</h3>
+        <ul>
+          <li><strong>President (Chair):</strong> Toby Brown</li>
+          <li><strong>Ex officio (voting) directors:</strong> current Chairs of LMA, ALA, ILTA</li>
+          <li>Meets at least <strong>twice per year</strong>, plus as needed</li>
+          <li>Quorum: &gt;50% of directors; decisions by simple majority</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="operating">
+    <h2>Operating Committee <span class="tag">Day-to-day Operations</span></h2>
+    <div class="callout">
+      <p><strong>Current members:</strong> Jim Hannigan, Toby Brown, Kelly Harbour, Ron Friedmann.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>What the Operating Committee does</h3>
+        <ul>
+          <li>Owns the LMSS roadmap, priorities, and release plan</li>
+          <li>Creates, coordinates, and closes Working Groups</li>
+          <li>Oversees repository maintainers (review/merge, tagging, release notes)</li>
+          <li>Resolves disputes within or between Working Groups</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How decisions are made</h3>
+        <ul>
+          <li>Meets at least <strong>monthly</strong></li>
+          <li>Quorum: <strong>3 of 4</strong> members (or &gt;50% if membership changes)</li>
+          <li>Decisions by simple majority</li>
+          <li>Major decisions recorded in lightweight notes and/or <code>DECISIONS.md</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="working-groups">
+    <h2>Working Groups (WGs) <span class="tag">Focused Delivery Teams</span></h2>
+    <p>
+      Working Groups do the hands-on work: drafting new terms, guidance, crosswalks, tooling proposals,
+      and other improvements for LMSS.
+    </p>
+    <ul>
+      <li>Open to contributors (subject to the Code of Conduct)</li>
+      <li>Each WG has a coordinator and an Operating Committee liaison</li>
+      <li>WGs propose changes, but do not change licensing/policy and do not approve breaking changes on their own</li>
+      <li>Each WG has a written charter (scope, outputs, duration)</li>
+    </ul>
+
+    <h3>How WGs decide (lazy consensus)</h3>
+    <ul>
+      <li>For minor, non-controversial items: a proposal is approved if no substantive objections are raised within a comment window (typically 7 days).</li>
+      <li>Unresolved disagreements are escalated to the Operating Committee.</li>
+    </ul>
+  </section>
+
+  <section id="releases">
+    <h2>LMSS release process <span class="tag">Predictable & Stable</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Stable release (once per year)</h3>
+        <ul>
+          <li><strong>Every January</strong>: one stable LMSS release is published</li>
+          <li>Proposed by the Operating Committee and ratified by the Board</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Beta stream (throughout the year)</h3>
+        <ul>
+          <li>After January, SALI maintains a beta stream for the next annual version</li>
+          <li>Accepted changes are merged into beta and may be tagged periodically</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h3>Fixes to the current stable release</h3>
+      <ul>
+        <li>The January stable release is largely frozen for the year</li>
+        <li>Only critical bug fixes or clearly non-controversial corrections may be back-ported</li>
+        <li>Back-ports require Operating Committee approval and clear release notes</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="approvals">
+    <h2>Approval paths (at a glance)</h2>
+    <ul>
+      <li>
+        <strong>Minor, non-breaking content</strong> (additive terms, clarifications, typos):<br />
+        WG (lazy consensus) → Operating Committee review/merge → typically next beta
+      </li>
+      <li>
+        <strong>New domains / term sets</strong> (generally non-breaking):<br />
+        WG proposal → Operating Committee approval → next beta → next January stable
+      </li>
+      <li>
+        <strong>Breaking / structural changes</strong> (renames, removals, major restructures):<br />
+        WG RFC → Operating Committee decision → Board review/ratification when high-impact → next beta → next January stable
+      </li>
+      <li>
+        <strong>Governance / licensing / policy changes</strong>:<br />
+        Draft → optional public comment → Operating Committee review → Board approval
+      </li>
+    </ul>
+  </section>
+
+  <section id="transparency">
+    <h2>Transparency, conduct, and licensing</h2>
+    <ul>
+      <li>Work is tracked via public issues and pull requests where practical</li>
+      <li>Decisions that affect users are recorded in notes and/or <code>DECISIONS.md</code></li>
+      <li>A Code of Conduct applies to meetings and online collaboration</li>
+      <li>Licensing/IP is Board-approved; repository <code>LICENSE</code> files are the source of truth</li>
+    </ul>
+
+    <h3>Escalation and appeals</h3>
+    <p>
+      Normal escalation path: <strong>Working Group → Operating Committee → Board of Directors</strong>.
+    </p>
+  </section>
+
+  <section id="participate">
+    <h2>How to participate</h2>
+    <ul>
+      <li>Join or propose a Working Group</li>
+      <li>Comment on GitHub issues and pull requests</li>
+      <li>Test beta releases and provide implementer feedback</li>
+      <li>Suggest new terms, mappings, or guidance with a clear use case</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>
+    © SALI.org — Governance summary for the Legal Matter Standard Specification (LMSS).
+  </p>
+</footer>
+</body>
 </html>
